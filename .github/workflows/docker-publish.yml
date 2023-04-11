@@ -34,7 +34,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build the Docker image
-        run: bash ./builder.sh latest-chromium build
+        run: chmod 755 
+              ./builder.sh latest-chromium build
       -
         name: Build and push
         uses: docker/build-push-action@v2
