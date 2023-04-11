@@ -38,6 +38,7 @@ jobs:
           chmod -Rf 755 *
           . secrets.rc
           ./builder.sh latest-chromium build
+          docker images
         
       -
         name: Build and push
