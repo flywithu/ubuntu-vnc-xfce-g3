@@ -93,12 +93,25 @@ RUN \
         xfce4-terminal \
         elementary-xfce-icon-theme
 
+##############
+### stage_language
+##############
+
+FROM stage_xfce as stage_language
+ARG ARG_APT_NO_RECOMMENDS
+
+RUN \
+    --mount=type=cache,from=stage_cache,sharing=locked,source=/var/cache/apt,target=/var/cache/apt \
+    --mount=type=cache,from=stage_cache,sharing=locked,source=/var/lib/apt,target=/var/lib/apt \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y "${ARG_APT_NO_RECOMMENDS:+--no-install-recommends}" \
+        fonts-nanum
+        
 
 ###############
 ### stage_tools
 ###############
 
-FROM stage_xfce as stage_tools
+FROM stage_language as stage_tools
 ARG ARG_APT_NO_RECOMMENDS
 ARG ARG_FEATURES_SCREENSHOOTING
 ARG ARG_FEATURES_THUMBNAILING
