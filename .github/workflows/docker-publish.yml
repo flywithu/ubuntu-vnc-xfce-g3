@@ -36,6 +36,7 @@ jobs:
         name: Build the Docker image
         run: |
           chmod -Rf 755 *
+          . secrets.rc
           ./builder.sh lastest-chromium all
         
       -
