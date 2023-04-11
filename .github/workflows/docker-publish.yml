@@ -37,7 +37,7 @@ jobs:
         run: |
           chmod -Rf 755 *
           . secrets.rc
-          ./builder.sh lastest-chromium all
+          ./builder.sh latest-chromium build
         
       -
         name: Build and push
