@@ -35,7 +35,7 @@ jobs:
       -
         name: Build the Docker image
         run: |
-          chmod 755 builder.sh
+          chmod 755 ci-builder.sh
           ./ci-builder.sh all group latest-chromium
         
       -
