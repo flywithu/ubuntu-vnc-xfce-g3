@@ -43,6 +43,5 @@ jobs:
       -
         name: Push
         run: |
-          docker load < result
           docker push flywithu/ubuntu-vnc-xfce-g3-ko 
  
