@@ -41,12 +41,8 @@ jobs:
           docker images
         
       -
-        name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+        name: Push
+        run: |
+          docker load < result
+          docker push flywithu/ubuntu-vnc-xfce-g3-ko 
+ 
